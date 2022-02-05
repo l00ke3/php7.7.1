@@ -2,6 +2,9 @@ FROM richarvey/nginx-php-fpm
 
 
 
+ADD conf/nginx-site.conf /etc/nginx/sites-available/default.conf
+ADD conf/nginx-site-ssl.conf /etc/nginx/sites-available/default-ssl.conf
+RUN ln -s /etc/nginx/sites-available/default.conf /etc/nginx/sites-enabled/default.conf
 
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
